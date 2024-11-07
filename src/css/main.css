@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 *,
 *::before,
 *::after {
@@ -83,13 +84,7 @@ svg * {
     scroll-behavior: auto !important;
   }
 }
-@font-face {
-  font-family: "Ephesis";
-  src: url("/fonts/Ephesis-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+
 :root {
   --color-light: #fff;
   --color-dark: #151618;
@@ -119,7 +114,7 @@ svg * {
   padding: 0 !important;
   white-space: nowrap !important;
   -webkit-clip-path: inset(100%) !important;
-          clip-path: inset(100%) !important;
+  clip-path: inset(100%) !important;
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
 }
@@ -157,22 +152,36 @@ svg * {
   transition-duration: var(--transition-duration);
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   font-family: var(--font-family-test);
   font-weight: 400;
   color: var(--color-dark);
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 60px;
   color: var(--color-light);
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 40px;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 24px;
 }
 
@@ -189,33 +198,39 @@ h3, .h3 {
   font-weight: 300;
   background-color: transparent;
 }
+
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-block: 30px;
 }
+
 .header__logo {
   padding-bottom: 35px;
 }
+
 .header__menu-list {
   display: flex;
   justify-content: center;
   align-items: center;
   -moz-column-gap: 70px;
-       column-gap: 70px;
+  column-gap: 70px;
 }
+
 .header__menu-link {
   font-size: 18px;
   font-weight: 400;
 }
+
 .header__actions {
   display: flex;
   justify-content: center;
   align-items: center;
   -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
+
 .header__actions-link:nth-child(3) {
   margin-left: 80px;
 }
@@ -224,10 +239,14 @@ h3, .h3 {
   color: var(--color-light);
   padding-top: 250px;
 }
+
 .hero__wrapper {
   background-image: url("../img/hero_image.jpg");
 }
+
 .hero__title {
   line-height: 1;
   max-width: 790px;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
