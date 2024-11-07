@@ -1,0 +1,233 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы слева тегам списков, у которых есть атрибут class */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/* Убираем внешние отступы body и двум другим тегам, у которых есть атрибут class */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/* Убираем внешние отступы вертикали нужным тегам, у которых есть атрибут class */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Убираем стандартный маркер маркированному списку, у которого есть атрибут class */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/* Обнуляем вертикальные внешние отступы параграфа, объявляем локальную переменную для внешнего отступа вниз, чтобы избежать взаимодействие с более сложным селектором */
+/* Упрощаем работу с изображениями */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Наследуем свойства шрифт для полей ввода */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /* Пригодится в большинстве ситуаций (когда, например, нужно будет "прижать" футер к низу сайта) */
+  height: 100%;
+  /* Плавный скролл */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Пригодится в большинстве ситуаций (когда, например, нужно будет "прижать" футер к низу сайта) */
+  min-height: 100%;
+  /* Унифицированный интерлиньяж */
+  line-height: 1.5;
+}
+
+/* Чиним баг задержки смены цвета при взаимодействии с svg-элементами*/
+svg * {
+  transition-property: fill, stroke;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитают их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Ephesis";
+  src: url("/fonts/Ephesis-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-light: #fff;
+  --color-dark: #151618;
+  --color-accent: #f7f2ea;
+  --container-width: 1200px;
+  --container-padding-x: 20px;
+  --font-family-base: "OpenSans", sans-serif;
+  --font-family-title: "Cormorant", sans-serif;
+  --font-family-test: "Ephesis", sans-serif;
+  --border: 1px solid var(--color-dark);
+  --button-height: 50px;
+  --transition-duration: .4s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + 2 * var(--container-padding-x));
+  padding-inline: var(--container-padding-x);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-visible {
+    display: none !important;
+  }
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a,
+input,
+textarea,
+button,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-family-test);
+  font-weight: 400;
+  color: var(--color-dark);
+}
+
+h1, .h1 {
+  font-size: 60px;
+  color: var(--color-light);
+}
+
+h2, .h2 {
+  font-size: 40px;
+}
+
+h3, .h3 {
+  font-size: 24px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--button-height);
+  padding-inline: 40px;
+  border: var(--border);
+  font-size: 20px;
+  color: var(--color-dark);
+  font-family: var(--font-family-base);
+  font-weight: 300;
+  background-color: transparent;
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 30px;
+}
+.header__logo {
+  padding-bottom: 35px;
+}
+.header__menu-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 70px;
+       column-gap: 70px;
+}
+.header__menu-link {
+  font-size: 18px;
+  font-weight: 400;
+}
+.header__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.header__actions-link:nth-child(3) {
+  margin-left: 80px;
+}
+
+.hero {
+  color: var(--color-light);
+  padding-top: 250px;
+}
+.hero__wrapper {
+  background-image: url("../img/hero_image.jpg");
+}
+.hero__title {
+  line-height: 1;
+  max-width: 790px;
+}/*# sourceMappingURL=main.css.map */

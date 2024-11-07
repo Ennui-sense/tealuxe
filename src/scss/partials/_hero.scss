@@ -1,0 +1,13 @@
+.hero {
+	color: var(--color-light);
+	padding-top: 250px;
+
+	&__wrapper {
+		background-image: url("../img/hero_image.jpg");
+	}
+
+	&__title {
+		line-height: 1;
+		max-width: 790px;
+	}
+}

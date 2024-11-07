@@ -1,0 +1,40 @@
+body {
+	font-family: var(--font-family-base);
+	font-weight: 300;
+	font-size: 16px;
+	color: var(--color-dark);
+	background-color: var(--color-light);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a,
+input,
+textarea,
+button,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	// font-family: var(--font-family-title);
+	font-family: var(--font-family-test);
+	font-weight: 400;
+	color: var(--color-dark);
+}
+
+h1, .h1 {
+	font-size: 60px;
+	color: var(--color-light)
+}
+
+h2, .h2 {
+	font-size: 40px;
+}
+
+h3, .h3 {
+	font-size: 24px;
+}
